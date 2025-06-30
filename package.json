@@ -1,0 +1,20 @@
+{
+  "name": "@raynecloudy/fs",
+  "version": "1.0.0",
+  "description": "a new file system API",
+  "homepage": "https://github.com/raynecloudy/fs#readme",
+  "bugs": {
+    "url": "https://github.com/raynecloudy/fs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raynecloudy/fs.git"
+  },
+  "license": "MIT",
+  "author": "raynecloudy",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
