@@ -3,7 +3,6 @@ import { rename, writeFile } from "node:fs/promises";
 export class FSFile extends Object {
   _accessed;
   _content;
-  _created;
   _modified;
   _path;
 

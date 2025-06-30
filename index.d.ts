@@ -11,10 +11,6 @@ export class FSFile {
    */
   content: string;
   /**
-   * A UTC timestamp of when the file was created.
-   */
-  created: number;
-  /**
    * A UTC timestamp of when the file was last modified.
    */
   modified: number;
