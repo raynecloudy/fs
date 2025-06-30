@@ -1,4 +1,4 @@
-import { rename, writeFile } from "node:fs/promises";
+import { renameSync, writeFileSync } from "node:fs";
 
 export class FSFile extends Object {
   _accessed;
@@ -14,7 +14,7 @@ export class FSFile extends Object {
         return this._content;
       },
       set: (value) => {
-        writeFile(this._path, value)
+        writeFileSync(this._path, value);
       }
     });
 
@@ -23,7 +23,7 @@ export class FSFile extends Object {
         return this._path;
       },
       set: (value) => {
-        rename(this._path, value);
+        renameSync(this._path, value);
         this._path = value;
       }
     });
