@@ -9,7 +9,7 @@ export class SystemFile extends Object {
 
     this._path = join(...paths);
 
-    if (!existsSync(this._path)) {
+    if (!existsSync(this._path) && parse(this._path).dir !== "") {
       mkdirSync(parse(this._path).dir, { recursive: true });
       writeFileSync(this._path, "");
     }
