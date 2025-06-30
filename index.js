@@ -1,10 +1,18 @@
-import { readFileSync, renameSync, statSync, utimesSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, renameSync, statSync, utimesSync, writeFileSync } from "node:fs";
+import { join, parse } from "node:path";
 
-export class FSFile extends Object {
+export class SystemFile extends Object {
   _path;
 
-  constructor(path) {
+  constructor(...paths) {
     super();
+
+    this._path = join(...paths);
+
+    if (!existsSync(this._path)) {
+      mkdirSync(parse(this._path).dir, { recursive: true });
+      writeFileSync(this._path, "");
+    }
 
     Object.defineProperty(this, "accessed", {
       get: () => {
@@ -17,7 +25,7 @@ export class FSFile extends Object {
 
     Object.defineProperty(this, "content", {
       get: () => {
-        return readFileSync(this._path).toString();;
+        return readFileSync(this._path).toString();
       },
       set: (value) => {
         writeFileSync(this._path, value);

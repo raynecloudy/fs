@@ -1,9 +1,8 @@
 declare module "@raynecloudy/fs" {
-
   /**
    * A file handler object.
    */
-  export class FSFile {
+  export class SystemFile {
     /**
      * A `Date` object with the UTC timestamp of when the file was last accessed.
      */
@@ -16,7 +15,7 @@ declare module "@raynecloudy/fs" {
       /**
        * The path to the file. If it does not exist, it will be created.
        */
-      path: string
+      ...paths: string[]
     );
     /**
      * A `Date` object with the UTC timestamp of when the file was created.
