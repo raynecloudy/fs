@@ -1,4 +1,4 @@
-import { writeFile } from "node:fs/promises";
+import { rename, writeFile } from "node:fs/promises";
 
 export class FSFile extends Object {
   _accessed;
@@ -17,6 +17,16 @@ export class FSFile extends Object {
       set: (value) => {
         writeFile(this._path, value)
       }
-    })
+    });
+
+    Object.defineProperty(this, "path", {
+      get: () => {
+        return this._path;
+      },
+      set: (value) => {
+        rename(this._path, value);
+        this._path = value;
+      }
+    });
   }
 }
