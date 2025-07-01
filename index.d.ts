@@ -38,36 +38,75 @@ declare module "@raynecloudy/fs" {
     permissions: FilePermissions;
   }
 
-  export interface FilePermissions {
+  /**
+   * A directory handler object.
+   */
+  export class SystemDirectory {
     /**
-     * A three-digit number indicating permissions for the file owner, the group, and everyone else.
+     * A `Date` object with the UTC timestamp of when the directory was last accessed.
+     */
+    accessed: Date;
+    /**
+     * The content of the file.
+     */
+    content: string;
+    /**
+     * @throws {Error} if the path specified is not a directory.
+     */
+    constructor(
+      /**
+       * The path to the file. If it does not exist, it will be created.
+       */
+      ...paths: string[]
+    );
+    /**
+     * A `Date` object with the UTC timestamp of when the directory was created.
+     */
+    readonly created: Date;
+    /**
+     * A `Date` object with the UTC timestamp of when the directory was last modified.
+     */
+    modified: Date;
+    /**
+     * The full path to the directory.
+     */
+    path: string;
+    /**
+     * The directory's permissions.
+     */
+    permissions: Permissions;
+  }
+
+  export interface Permissions {
+    /**
+     * A three-digit number indicating permissions for the owner, the group, and everyone else.
      */
     code: number;
     /**
-     * Everybody that is not the file owner or a member of the group.
+     * Everybody that is not the owner or a member of the group.
      */
     everyone: RWX;
     /**
-     * A member of the file owner group.
+     * A member of the owner group.
      */
     group: RWX;
     /**
-     * The owner of the file.
+     * The owner.
      */
     user: RWX;
   }
 
   export interface RWX {
     /**
-     * Permission to read the file.
+     * Permission to read.
      */
     read: boolean;
     /**
-     * Permission to write to the file.
+     * Permission to write.
      */
     write: boolean;
     /**
-     * Permission to execute the file.
+     * Permission to execute a file, or traverse a directory.
      */
     execute: boolean;
   }
