@@ -39,15 +39,36 @@ declare module "@raynecloudy/fs" {
   }
 
   export interface FilePermissions {
+    /**
+     * A three-digit number indicating permissions for the file owner, the group, and everyone else.
+     */
     code: number;
+    /**
+     * Everybody that is not the file owner or a member of the group.
+     */
     everyone: RWX;
+    /**
+     * A member of the file owner group.
+     */
     group: RWX;
+    /**
+     * The owner of the file.
+     */
     user: RWX;
   }
 
   export interface RWX {
+    /**
+     * Permission to read the file.
+     */
     read: boolean;
+    /**
+     * Permission to write to the file.
+     */
     write: boolean;
+    /**
+     * Permission to execute the file.
+     */
     execute: boolean;
   }
 }
