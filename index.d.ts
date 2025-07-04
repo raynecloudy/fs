@@ -47,10 +47,6 @@ declare module "@raynecloudy/fs" {
      */
     accessed: Date;
     /**
-     * The content of the file.
-     */
-    content: string;
-    /**
      * @throws {Error} if the path specified is not a directory.
      */
     constructor(
