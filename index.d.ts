@@ -35,7 +35,7 @@ declare module "@raynecloudy/fs" {
     /**
      * The file's permissions.
      */
-    permissions: FilePermissions;
+    permissions: Permissions;
   }
 
   /**
