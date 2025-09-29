@@ -1,5 +1,3 @@
-**FOR SoM JUDGES: there's an example project in `example.js` :)**
-
 `@raynecloudy/fs` is a wrapper around the more low-level core npm package "fs". this npm package provides high-level and easy file system manipulation :)
 
 Example:
